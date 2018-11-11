@@ -1,0 +1,16 @@
+<% content_for :title, 'News' %>
+<p id="notice"><%= notice %></p>
+
+<div class="container showNews">
+
+  <h4 class="text-center"><%= @news.title %></h4>
+  <p><%= @news.content %></p>
+
+
+
+  <div class="text-center">
+    <%= button_to 'Edit', edit_news_path(@news), class: 'btn btn-mycolor' %>
+    <%= button_to 'Back', root_path, class: 'btn btn-mycolor', method: :get %>
+  </div>
+
+</div>

@@ -1,0 +1,2 @@
+class Gempost < ApplicationRecord
+end

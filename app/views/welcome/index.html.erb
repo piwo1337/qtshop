@@ -1,0 +1,64 @@
+<% content_for :title, 'Home' %>
+
+<div class="container headPage">
+  <h2 class="text-center"><%= fa_icon "gitlab", text: "GEM Shop" %></h2>
+  <p class="text-center">"Betcha You Don't Wan't Just One."</p>
+</div>
+<div class="container bodyPage">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="newsPage">
+        <h4 class="text-center">Latest News</h4>
+
+          <table>
+
+            <% @news.each do |news| %>
+              <tr>
+                <td><h5><%= news.title %></h5></td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <% if news.content.length > 80 %>
+                      <p><%= truncate(news.content, length: 80) %></p>
+                      <%= link_to '...Read More', news_path(news.id), class: "readMore" %>
+                      <br>
+                    <% else %>
+                      <%= news.content %>
+                    <% end %>
+                  <div>
+                </td>
+              </tr>
+            <% end %>
+
+          </table>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="latestItem">
+        <h4 class="text-center">Latest Hot GEM!</h4>
+
+        <table class="text-center">
+
+            <% @gemposts.each do |gempost| %>
+            <tr>
+              <td><%= image_tag gempost.img, class: 'spinImage' %></td>
+            </tr>
+            <tr>
+              <td><h5><%= gempost.title %></h5></td>
+            </tr>
+            <tr>
+              <td><p><%= gempost.content %></p></td>
+            </tr>
+            <tr>
+              <td><%= button_to "View More", gems_path, class: 'btn btn-mycolor', method: :get %>
+            </tr>
+            <% end %>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

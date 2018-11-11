@@ -1,0 +1,32 @@
+<%= form_with(model: gempost, local: true) do |form| %>
+  <% if gempost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gempost.errors.count, "error") %> prohibited this gempost from being saved:</h2>
+
+      <ul>
+      <% gempost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :img %>
+    <%= form.text_field :img %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
