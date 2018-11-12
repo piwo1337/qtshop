@@ -16,9 +16,24 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require jquery.slick
+//= require owl.carousel
 //= require_tree .
 
 $( document ).on('turbolinks:load', function() {
+
+  $(".owl-carousel").owlCarousel({
+    items : 1,
+    nav: true
+
+  });
+
+  $( ".owl-prev").html('<i class="fa fa-chevron-left"></i>');
+  $( ".owl-next").html('<i class="fa fa-chevron-right"></i>');
+
+  setTimeout(function(){
+    $('.alert').remove();
+  }, 3000);
 
   $('.carousel').carousel({
       interval: false

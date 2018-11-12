@@ -1,6 +1,44 @@
 <% content_for :title, "Gem's List" %>
 
+<div class="gemsHeader text-center">
+  <h2>All Available Gem's</h2>
+</div>
+
+
 <div class="container" id="carouselCont">
+
+  <div class=" owl-carousel owl-theme owl-loaded">
+
+    <% @gemposts.each_with_index do |gems, index| %>
+
+          <div class="item text-center">
+
+            <%= image_tag gems.img %>
+            <h5><%= gems.title %></h5>
+            <p><%= gems.content %></p>
+
+            <%= button_to '#', class: 'btn btn-mycolor'  do %>
+              <%= fa_icon "shopping-cart", text: "Add To Cart" %>
+            <% end %>
+
+          </div>
+
+      <% end %>
+
+  </div>
+
+  <div class="gemsBtn text-center">
+
+  <% if admin_signed_in? %>
+
+    <%= button_to "Add New Gem's",  new_gempost_path, class: 'btn btn-mycolor', method: :get %>
+
+  <% end %>
+
+  </div>
+
+
+<!--
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -37,5 +75,6 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+-->
 </div>
 

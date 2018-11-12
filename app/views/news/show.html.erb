@@ -1,5 +1,4 @@
 <% content_for :title, 'News' %>
-<p id="notice"><%= notice %></p>
 
 <div class="container showNews">
 
@@ -9,7 +8,9 @@
 
 
   <div class="text-center">
-    <%= button_to 'Edit', edit_news_path(@news), class: 'btn btn-mycolor' %>
+    <% if admin_signed_in? %>
+      <%= button_to 'Edit', edit_news_path(@news), class: 'btn btn-mycolor', method: :get %>
+    <% end %>
     <%= button_to 'Back', root_path, class: 'btn btn-mycolor', method: :get %>
   </div>
 

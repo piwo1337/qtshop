@@ -38,6 +38,9 @@ gem 'font-awesome-rails'
 gem 'animate-rails'
 gem 'hover-rails'
 gem 'active_link_to'
+gem 'devise'
+gem "jquery-slick-rails"
+gem 'owlcarousel-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

@@ -1,4 +1,5 @@
 class GempostsController < ApplicationController
+  before_action :authorize_admin, except: [:show]
   before_action :set_gempost, only: [:show, :edit, :update, :destroy]
 
   # GET /gemposts
@@ -71,4 +72,10 @@ class GempostsController < ApplicationController
     def gempost_params
       params.require(:gempost).permit(:title, :content, :img)
     end
+
+    def authorize_admin
+      return unless !admin_signed_in?
+      redirect_to root_path, alert: 'Admins only!'
+    end
+
 end

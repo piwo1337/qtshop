@@ -13,10 +13,13 @@
  *= require_tree .
  *= require_self
  *= require animate
+ *= require owl.carousel
+  *= require owl.theme
  */
 @import "bootstrap";
 @import "hover";
 @import "font-awesome";
+@import 'slick';
 
 @font-face {
   font-family: "FontAwesome";
@@ -29,8 +32,15 @@
 body {
   width: 50%;
   margin:0 auto;
-  background: #E6E6FA;
+  background: #fff;
   font-family: 'Montserrat', sans-serif;
+}
+
+.alert {
+  position: absolute;
+  z-index: 1000;
+  width: 50%;
+  text-align: center;
 }
 
 .btn-mycolor {
@@ -44,6 +54,11 @@ body {
     opacity: 1;
   }
 
+}
+
+.btn:focus, .btn.focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .navbar {
@@ -71,16 +86,17 @@ h4 {
 
 .headPage {
   padding-top: 6rem;
-  background: #ecf0fd;
+  background: #8A496B;;
   height: 16rem;
   border-bottom: 3px solid #8A496B;
 
   h2 {
+    color: #fff !important;
     letter-spacing: 5px;
   }
 
   p {
-    color: #8A496B;
+    color: #fff !important;
     letter-spacing: 2px;
   }
 
@@ -90,7 +106,7 @@ h4 {
   padding-top: 1.5rem;
 
     .col-md-6:nth-child(2) {
-      border-left: 2px solid rgba(138,73,107, 0.5);
+      border-left: 2px solid rgb(138,73,107);
     }
 
   .newsPage {
@@ -141,59 +157,87 @@ h4 {
 
 }
 
+.gemsHeader {
+
+  background: #8A496B;
+  padding: 40px;
+
+  h2 {
+    color: white !important;
+    letter-spacing: 2px;
+  }
+}
+
+.gemsBtn {
+  margin-top: 2rem;
+}
+
 #carouselCont {
 
-  margin-top: 4rem;
+  margin-top: 3rem;
 
-  .carousel {
+  img {
+    height: 128px !important;
+    width: 128px !important;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
 
-    height: 37rem;
-    padding-top: 9rem;
+  p {
 
-    a {
-      background: #8A496B;
-    }
+    width: 50%;
+    margin:0 auto;
+    margin-bottom: 1rem;
+
+  }
 
 
-    ol {
+  .owl-next, .owl-prev {
+    height: 80px;
+    position: absolute;
+    width: 40px;
+    cursor: pointer;
+    top: 100px !important;
 
-      bottom: -50px !important;
-
-      li {
-        background: #8A496B;
-        opacity: 0.5;
-      }
-
-      li.active{
-        opacity: 1;
-        background: #8A496B;
-      }
-
-    }
-
-    .carousel-item {
-
-      img {
-        margin: 0 auto;
-        padding-bottom: 1.5rem;
-      }
-
-      p {
-        opacity: 0.8;
-        color: #8A496B;
-      }
-
-      .carousel-caption {
-        position: relative;
-        left: auto;
-        right: auto;
-        width: 50%;
-        margin: 0 auto;
-      }
-
+    .fa {
+      font-size: 2rem;
     }
 
   }
+
+  .owl-next {
+    right: 0px;
+    bottom: 10px;
+    color: #8a496b;
+  }
+
+  .owl-prev {
+    left: 0px;
+    bottom: 10px;
+    color: #8a496b;
+  }
+
+ .owl-prev.disabled,.owl-next.disabled  {
+    pointer-events: none;
+    opacity: 0.2;
+  }
+
+  .owl-theme .owl-nav [class*='owl-']:hover {
+    color: white !important;
+    background: #8a496b;
+;
+
+  }
+
+  .owl-dot.active span, .owl-dot:hover span {
+    background: #8a496b !important;
+  }
+
+  .btn {
+    margin-bottom: 2rem;
+  }
+
 }
 
 .showNews {
@@ -218,7 +262,7 @@ h4 {
 .footer {
   position: absolute;
   bottom: 1.5rem;
-  background: #E6E6FA;
+  background: #fff;
   width: 50%;
   height: 60px;
   line-height: 60px;

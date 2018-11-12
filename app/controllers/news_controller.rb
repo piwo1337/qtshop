@@ -1,4 +1,5 @@
 class NewsController < ApplicationController
+  before_action :authorize_admin, except: [:show]
   before_action :set_news, only: [:show, :edit, :update, :destroy]
 
   # GET /news
@@ -71,4 +72,10 @@ class NewsController < ApplicationController
     def news_params
       params.require(:news).permit(:title, :content)
     end
+
+    def authorize_admin
+      return unless !admin_signed_in?
+      redirect_to root_path, alert: 'Admins only!'
+    end
+
 end
